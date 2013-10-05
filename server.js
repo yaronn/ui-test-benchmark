@@ -3,7 +3,7 @@ var restify = require('restify');
 function add(req, res, next) {
   var val = parseInt(req.params.x) + parseInt(req.params.y)
   console.log(req.params.x + "+" + req.params.y + "=" + val)
-  res.send({res: val});
+  setTimeout(function() {res.send({res: val})}, 1000)  
 }
 
 var server = restify.createServer();

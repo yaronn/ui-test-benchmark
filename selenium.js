@@ -1,5 +1,8 @@
 var wd = require('wd')  
-  , browser = wd.remote();
+  , browser = wd.remote({
+    hostname: '127.0.0.1',
+    port: 9997
+  });
 
 browser.on('status', function(info) {
   console.log(info);
@@ -10,7 +13,7 @@ browser.on('command', function(meth, path, data) {
 });
 
 browser.init({
-    browserName:'chrome'    
+    browserName:'phantomjs'    
   }, function() {
       var start = new Date().getTime();
       browser.get("http://www.bing.com", function() {

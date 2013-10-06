@@ -3,7 +3,7 @@ var assert = require("assert");
 
 
 var browser = new Browser()
-
+browser.proxy = "http://web-proxy.israel.hp.com:8080/"
 
 /*
 // Load the page from localhost

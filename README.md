@@ -1,15 +1,32 @@
-ui-test-benchmark
-=================
 
-sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -Dwebdriver.chrome.driver="/home/storm/Downloads/chromedriver"
-node selenium
+chrome webdriver
+================
+$> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -Dwebdriver.chrome.driver="/home/storm/Downloads/chromedriver" -Dhttp.proxyHost=web-proxy.israel.hp.com -Dhttp.proxyPort=8080
+$> node selenium chrome
 5800
 
 
-~/apps/casper/bin/casperjs test ./casper.js
+casper-phantom
+==============
+$> ~/apps/casper/bin/casperjs test ./casper.js
 1500
 
 
-node zombie
+zombie
+======
+$> node zombie
 7500
 
+phantomdriver hub
+=================
+$> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -role hub -Dhttp.proxyHost=web-proxy.israel.hp.com -Dhttp.proxyPort=8080
+$> phantomjs --webdriver=8080 --webdriver-selenium-grid-hub=http://127.0.0.1:4444
+$> node selenium ghost-driver
+2600
+
+ 
+phantomdriver remote control
+============================
+$> phantomjs --webdriver=9997
+$> node selenium ghost-rc
+2600

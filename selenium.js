@@ -1,8 +1,12 @@
+var mode = process.argv[2]
+var browserName = mode=="chrome"?"chrome":"phantomjs"
+
 var wd = require('wd')  
   , browser = wd.remote({
     hostname: '127.0.0.1',
-    port: 9997
+    port: mode=="ghost-rc"?9997:4444    
   });
+
 
 browser.on('status', function(info) {
   console.log(info);
@@ -13,7 +17,7 @@ browser.on('command', function(meth, path, data) {
 });
 
 browser.init({
-    browserName:'phantomjs'    
+    browserName: browserName
   }, function() {
       var start = new Date().getTime();
       browser.get("http://www.bing.com", function() {

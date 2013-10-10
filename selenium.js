@@ -1,5 +1,5 @@
 var mode = process.argv[2]
-var browserName = mode=="chrome"?"chrome":"phantomjs"
+var browserName = (mode=="chrome" || mode=="firefox")?mode:"phantomjs"
 
 var wd = require('wd')  
   , browser = wd.remote({
@@ -18,8 +18,8 @@ browser.on('command', function(meth, path, data) {
 
 browser.init({
     browserName: browserName
-  }, function() {
-      var start = new Date().getTime();
+  }, function() {    
+      var start = new Date().getTime();      
       browser.get("http://www.bing.com", function() {
         browser.waitForVisibleById("sb_form_q", 6000, function(err){
           browser.elementById("sb_form_q", function(err, el) {

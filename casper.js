@@ -10,9 +10,9 @@ casper.test.begin('bing search', 2, function(test) {
               this.click('#sb_form_go');
 
               
-              this.waitUntilVisible('#count', function() {        
+              this.waitUntilVisible('#count', function() {                          
                   var val = this.evaluate(function() {
-                     return document.getElementById('count').innerText
+                     return document.getElementById('count').textContent                     
                   });
                   console.log(val)
                   var end = new Date().getTime();

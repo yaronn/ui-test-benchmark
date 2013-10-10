@@ -8,7 +8,31 @@ $> node selenium chrome
 5800
 
 
-casper-ph antom
+chrome webdriver grid
+=====================
+$> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -role hub
+$> java -jar ~/Downloads/selenium-server-standalone-2.35.0.jar -role webdriver -hub http://localhost:4444/grid/register -browser browserName="chrome",version=ANY,platform=WINDOWS,maxInstances=5 -Dwebdriver.chrome.driver="/home/storm/Downloads/chromedriver"
+
+6500-8500
+
+
+firefox webdriver
+================
+$> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar
+
+$> node selenium firefox
+
+8000
+
+chrome webdriver grid
+=====================
+$> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -role hub
+$> java -jar ~/Downloads/selenium-server-standalone-2.35.0.jar -role webdriver -hub http://localhost:4444/grid/register -browser browserName="firefox",version=ANY,platform=WINDOWS
+
+7200-9400
+
+
+casper-phantom
 ==============
 $> ~/apps/casper/bin/casperjs test ./casper.js
 
@@ -50,5 +74,16 @@ $> node spooky
 2200
 
 
+casper - slimerjs
+=================
+$> PATH=$PATH:~/apps/slimerjs-0.8.3  
+$> ~/apps/casper/bin/casperjs test ./casper.js --engine=slimerjs
+
+2800
 
 
+slimerjs
+=========
+$> slimerjs slimer.js
+
+2900

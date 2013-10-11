@@ -36,7 +36,7 @@ casper-phantom
 ==============
 $> ~/apps/casper/bin/casperjs test ./casper.js
 
-1500
+1100-1500
 
 
 zombie
@@ -87,3 +87,13 @@ slimerjs
 $> slimerjs slimer.js
 
 2900
+
+chrome saucelabs
+=================
+$> node selenium chrome remote
+11000-13000
+
+firefox saucelabs
+=================
+$> node selenium firefox remote
+8900-11500

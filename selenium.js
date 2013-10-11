@@ -1,11 +1,21 @@
 var mode = process.argv[2]
 var browserName = (mode=="chrome" || mode=="firefox")?mode:"phantomjs"
+var remote = process.argv[3]=="remote"
+
+var port = 4444;
+if (remote) port = 80
+else if (mode=="ghost-rc") port = 9997
+
+
+var params = {
+    hostname: remote?'ondemand.saucelabs.com':'127.0.0.1',
+    port: port,
+    user: "yaronn01",
+    pwd: "daa47681-6117-4d8b-a6b7-fe52adc65a58"
+  }
 
 var wd = require('wd')  
-  , browser = wd.remote({
-    hostname: '127.0.0.1',
-    port: mode=="ghost-rc"?9997:4444    
-  });
+  , browser = wd.remote(params);
 
 
 browser.on('status', function(info) {
@@ -18,7 +28,8 @@ browser.on('command', function(meth, path, data) {
 
 browser.init({
     browserName: browserName
-  }, function() {    
+  }, function(err) {    
+      if (err) console.log(err)
       var start = new Date().getTime();      
       browser.get("http://www.bing.com", function() {
         browser.waitForVisibleById("sb_form_q", 6000, function(err){
@@ -26,8 +37,8 @@ browser.init({
             el.sendKeys("book", function(err) {
                 browser.elementById("sb_form_go", function(err, btn) {
                   btn.click(function() {
-                      browser.waitForVisibleById("count", 6000, function(err){                      
-                          browser.elementById("count", function(err, count) {
+                      browser.waitForElementByCssSelector(".sb_count", 6000, function(err){                      
+                          browser.elementByCssSelector(".sb_count", function(err, count) {
                             browser.text(count, function(err, value){
                               var end = new Date().getTime();
                               var time = end - start;

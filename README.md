@@ -31,6 +31,12 @@ $> java -jar ~/Downloads/selenium-server-standalone-2.35.0.jar -role webdriver -
 
 7200-9400
 
+phantom
+=======
+$> phantomjs phantom.js
+
+2300
+
 
 casper-phantom
 ==============

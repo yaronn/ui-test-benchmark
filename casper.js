@@ -1,3 +1,11 @@
+/*
+var casper = require('casper').create({
+    pageSettings: {
+        loadImages: false,
+        loadPlugins: false
+    }
+});
+*/
 
 casper.userAgent("Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.98 Safari/534.13");
 

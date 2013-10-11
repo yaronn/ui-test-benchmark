@@ -1,3 +1,9 @@
+Time
+====
+
+/usr/bin/time --v [command]
+
+
 
 chrome webdriver
 ================
@@ -5,51 +11,62 @@ $> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -Dwebdriver.chrome.dri
 
 $> node selenium chrome
 
-5800
+flow: 5500
+full: 10500
 
 
 chrome webdriver grid
 =====================
 $> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -role hub
 $> java -jar ~/Downloads/selenium-server-standalone-2.35.0.jar -role webdriver -hub http://localhost:4444/grid/register -browser browserName="chrome",version=ANY,platform=WINDOWS,maxInstances=5 -Dwebdriver.chrome.driver="/home/storm/Downloads/chromedriver"
+$> node selenium chrome
 
-6500-8500
+flow: 6500
+full: 11500
 
 
 firefox webdriver
 ================
 $> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar
-
 $> node selenium firefox
 
-8000
+flow: 9900
+full: 19500
 
-chrome webdriver grid
+firefox webdriver grid
 =====================
 $> sudo ~/Downloads/selenium-server-standalone-2.35.0.jar -role hub
 $> java -jar ~/Downloads/selenium-server-standalone-2.35.0.jar -role webdriver -hub http://localhost:4444/grid/register -browser browserName="firefox",version=ANY,platform=WINDOWS
+$> node selenium firefox
 
-7200-9400
+flow: 9500
+full: 22500
 
 phantom
 =======
 $> phantomjs phantom.js
 
-2300
+flow: 2200
+full: 2900
 
 
 casper-phantom
 ==============
 $> ~/apps/casper/bin/casperjs test ./casper.js
 
-1100-1500
+flow: 1350
+full: 2200
+
 
 
 zombie
 ======
 $> node zombie
 
-7500
+flow: 7500
+full: 9800
+
+
 
 phantomdriver hub
 =================
@@ -59,16 +76,18 @@ $> phantomjs --webdriver=8080 --webdriver-selenium-grid-hub=http://127.0.0.1:444
 
 $> node selenium ghost-driver
 
+?????????????????????????
 2600
 
  
 phantomdriver remote control
 ============================
 $> phantomjs --webdriver=9997
-
 $> node selenium ghost-rc
 
-2600
+flow: 2300
+full: 3300
+
 
 
 spooky-casper-phantom
@@ -77,7 +96,9 @@ $> PATH=$PATH:~/apps/casper/bin
 
 $> node spooky
 
-2200
+flow: 1950
+full: 3100
+
 
 
 casper - slimerjs
@@ -85,21 +106,25 @@ casper - slimerjs
 $> PATH=$PATH:~/apps/slimerjs-0.8.3  
 $> ~/apps/casper/bin/casperjs test ./casper.js --engine=slimerjs
 
-2800
+flow: 2800
+full: 5800
 
 
 slimerjs
 =========
 $> slimerjs slimer.js
 
-2900
+flow: 3300
+full: 6300
 
 chrome saucelabs
 =================
 $> node selenium chrome remote
-11000-13000
+flow: 14000
+full: 24000
 
 firefox saucelabs
 =================
 $> node selenium firefox remote
-8900-11500
+flow: 12000
+full: 25000

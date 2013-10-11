@@ -11,8 +11,8 @@ function spooky(port) {
                     port: port
                 },
                 casper: {
-                    logLevel: 'debug',
-                    verbose: true
+                    //logLevel: 'debug',
+                    //verbose: true
                 }
             }, function (err) {
                 if (err) {
@@ -87,6 +87,9 @@ function spooky(port) {
         });
 }
 
+spooky(9090)
+/*
 for (var i=0; i<20; i++) {
     spooky(9091 + i)
 }
+*/

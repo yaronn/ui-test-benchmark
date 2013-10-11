@@ -9,10 +9,17 @@ else if (mode=="ghost-rc") port = 9997
 
 var params = {
     hostname: remote?'ondemand.saucelabs.com':'127.0.0.1',
-    port: port,
-    user: "yaronn01",
-    pwd: "daa47681-6117-4d8b-a6b7-fe52adc65a58"
+    port: port    
   }
+
+
+if (remote) {
+  params.user = "yaronn01"
+  params.pwd = "daa47681-6117-4d8b-a6b7-fe52adc65a58"
+}
+
+console.log(params)
+console.log(browserName)
 
 var wd = require('wd')  
   , browser = wd.remote(params);
@@ -31,10 +38,14 @@ browser.init({
   }, function(err) {    
       if (err) console.log(err)
       var start = new Date().getTime();      
-      browser.get("http://www.bing.com", function() {
+      browser.get("http://www.bing.com", function(err) {
+        if (err) console.log(err)
         browser.waitForVisibleById("sb_form_q", 6000, function(err){
+          if (err) console.log(err)
           browser.elementById("sb_form_q", function(err, el) {
+            if (err) console.log(err)
             el.sendKeys("book", function(err) {
+                if (err) console.log(err)
                 browser.elementById("sb_form_go", function(err, btn) {
                   btn.click(function() {
                       browser.waitForElementByCssSelector(".sb_count", 6000, function(err){                      

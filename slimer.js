@@ -21,8 +21,8 @@ page.open("http://www.bing.com/")
     var time = end - start;
     console.log('Execution time: ' + time);
   })
-  .then(function() {
+  .then(function() {    
     page.close();
-    slimerjs.exit()
+    slimer.exit()
   });
   

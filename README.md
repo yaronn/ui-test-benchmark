@@ -1,3 +1,9 @@
+Installation
+===========
+[install phantom](http://stackoverflow.com/questions/8778513/how-can-i-setup-run-phantomjs-on-ubuntu)
+
+selenium, chrome driver are just downloads of jar
+
 Time
 ====
 
